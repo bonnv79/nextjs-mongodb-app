@@ -4,3 +4,4 @@
 - Init project
 - improvement: add ant design
 - fix-bug: fix get posts error
+- improvement: modify posts table

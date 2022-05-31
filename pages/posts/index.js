@@ -7,9 +7,11 @@ import styles from './styles.module.scss';
 import { API_POSTS } from 'constants/apiPath';
 import { useRouter } from 'next/router';
 import { ROUTER_PATH } from 'constants/routerPath';
+import { FIRST_PAGE, PAGE_SIZE } from 'constants';
 
 export default function Posts({ data: initData = [] }) {
   const router = useRouter();
+  const [pagination, setPagination] = useState({ current: FIRST_PAGE, pageSize: PAGE_SIZE });
   const [selected, setSelected] = useState({});
   const [data, setData] = useState(initData);
   const [loading, setLoading] = useState(false);
@@ -73,7 +75,8 @@ export default function Posts({ data: initData = [] }) {
       dataIndex: 'stt',
       align: 'center',
       render: (value, row, index) => {
-        return index;
+        const { current = FIRST_PAGE, pageSize = PAGE_SIZE } = pagination || {};
+        return (current - 1) * pageSize + index + 1;
       },
     },
     {
@@ -130,6 +133,7 @@ export default function Posts({ data: initData = [] }) {
           ghost={false}
           onBack={() => router.back()}
           title="Posts"
+          subTitle={`Total items: ${data.length}`}
           extra={[
             <Button key="1" onClick={deleteMutiPost} disabled={selected.length <= 0}>Delete</Button>,
             <Button key="2" onClick={handleFreshData}>Refresh</Button>,
@@ -147,6 +151,9 @@ export default function Posts({ data: initData = [] }) {
             columns={columns}
             dataSource={data}
             size="small"
+            onChange={(pagination, filters, sorter, extra) => {
+              setPagination(pagination);
+            }}
           />
         </PageHeader>
       </Spin>
