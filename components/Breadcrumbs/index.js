@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import { PARSE_ROUTER_PATH_BREADCRUMBS, ROUTER_PATH } from 'constants/routerPath';
 import Link from 'next/link';
+import { Breadcrumb } from 'antd';
 
 export function Breadcrumbs({ pathname }) {
   const arr = pathname.split('/');
@@ -23,28 +24,21 @@ export function Breadcrumbs({ pathname }) {
   const size = data.length;
 
   return (
-    <ul className={styles.breadcrumb}>
+    <Breadcrumb className={styles.breadcrumb}>
       {
         data.map((item, index) => {
           const isLast = index === size - 1;
           return (
-            <li key={item.id}>
-              {
-                isLast ? (
-                  <span>{item.name}</span>
-                ) : (
-                  <Link href={item.href}>
-                    <a>{item.name}</a>
-                  </Link>
-                )
-              }
-
-            </li>
+            <Breadcrumb.Item key={item.id} className={styles.item}>
+              <Link href={item.href}>
+                {isLast ? item.name : <a>{item.name}</a>}
+              </Link>
+            </Breadcrumb.Item>
           )
         })
       }
-    </ul>
+    </Breadcrumb>
   )
 }
 
-export default Breadcrumbs
+export default Breadcrumbs;

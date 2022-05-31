@@ -1,4 +1,21 @@
+import { notification } from "antd";
 import { EMPTY_FUNCTION } from "constants";
+
+// 'success' | 'info' | 'warning' | 'error'
+export const openNotification = (type, message = '', description = '') => {
+  notification[type]({
+    message,
+    description,
+  });
+};
+
+export const openSuccess = (message) => openNotification('success', 'Success', message);
+
+export const openInfo = (message) => openNotification('info', 'Info', message);
+
+export const openWarning = (message) => openNotification('warning', 'Warning', message);
+
+export const openError = (message) => openNotification('error', 'Error', message);
 
 export function sleep(ms) {
   return new Promise((resolve) => {

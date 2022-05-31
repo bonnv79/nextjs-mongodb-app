@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { Button, ComponentLabel, Input, Backdrop, ErrorMsg } from 'components'
+import { Button, Input } from 'antd'
+import { ComponentLabel, Backdrop, ErrorMsg } from 'components'
 import { ROUTER_PATH } from 'constants/routerPath'
 import { getCookie, setCookie } from 'utils/cookies'
 import { API_LOGIN } from 'constants/apiPath'
@@ -91,7 +92,7 @@ export default function Login() {
           </div>
 
           <div>
-            <Button onClick={handleLogin}>Sign in</Button>
+            <Button size='small' shape="round" onClick={handleLogin}>Sign in</Button>
           </div>
 
           <ErrorMsg>{errorMsg}</ErrorMsg>

@@ -18,6 +18,8 @@ export default function Home({ isConnected }) {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
+        <br />
+
         {isConnected ? (
           <h2 className="subtitle">You are connected to MongoDB</h2>
         ) : (
@@ -27,17 +29,12 @@ export default function Home({ isConnected }) {
           </h2>
         )}
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
         <div className={styles.grid}>
-          <Card href={ROUTER_PATH.HELLO_WORLD} title="Hello World" />
+          {/* <Card href={ROUTER_PATH.HELLO_WORLD} title="Hello World" />
 
           <Card href={ROUTER_PATH.FETCH_API} title="Fetch API" />
 
-          <Card href={ROUTER_PATH.ROUTER} title="Router" />
+          <Card href={ROUTER_PATH.ROUTER} title="Router" /> */}
 
           <Card href={ROUTER_PATH.POST} title="POST" />
 

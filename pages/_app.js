@@ -1,14 +1,16 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { Button } from 'antd';
 import 'styles/globals.scss'
 import 'styles/common.scss'
 import styles from 'styles/app.module.scss'
 import { getCookie, setCookie } from 'utils/cookies';
-import { Breadcrumbs, Button } from 'components';
+import { Breadcrumbs } from 'components';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ROUTER_PATH } from 'constants/routerPath';
 import config from 'package.json';
+import 'antd/dist/antd.css';
 
 function MyApp({ Component, pageProps }) {
   const { name, version } = config || {};
@@ -54,11 +56,11 @@ function MyApp({ Component, pageProps }) {
             <>
               <Image src="/user.png" alt="User Logo" width={24} height={24} />
               <span className={styles.user}>{userName}</span>
-              <Button onClick={handleLogout}>Logout</Button>
+              <Button size='small' shape="round" onClick={handleLogout}>Logout</Button>
             </>
           )}
 
-          {isLogin && <Button onClick={handleSignUp}>Sign up</Button>}
+          {isLogin && <Button size='small' shape="round" onClick={handleSignUp}>Sign up</Button>}
         </div>
       </div>
       <div style={{ visibility: isLogin ? 'hidden' : '' }}>

@@ -76,6 +76,12 @@ async function deletePost(req, res) {
         _id: {
           $in: idList
         }
+      }, function (err, result) {
+        if (err) {
+          res.send(err);
+        } else {
+          res.send(result);
+        }
       });
     } else {
       await db.collection(table).deleteOne({
