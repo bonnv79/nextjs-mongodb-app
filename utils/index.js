@@ -49,6 +49,7 @@ export const getAPI = async (url, options = {}, success = EMPTY_FUNCTION, error 
     })
   } catch (error) {
     console.error(error);
+    error(data);
     loading(false);
   }
 }
@@ -69,6 +70,7 @@ export const postAPI = async (url, options = {}, success = EMPTY_FUNCTION, error
     })
   } catch (error) {
     console.error(error);
+    error(data);
     loading(false);
   }
 }
@@ -89,6 +91,7 @@ export const putAPI = async (url, options = {}, success = EMPTY_FUNCTION, error 
     })
   } catch (error) {
     console.error(error);
+    error(data);
     loading(false);
   }
 }
@@ -109,6 +112,7 @@ export const deleteAPI = async (url, options = {}, success = EMPTY_FUNCTION, err
     })
   } catch (error) {
     console.error(error);
+    error(data);
     loading(false);
   }
 }

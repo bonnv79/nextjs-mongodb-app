@@ -60,7 +60,7 @@ export default function Posts({ data: initData = [] }) {
     deleteAPI(API_POSTS, {
       body: JSON.stringify(selected),
     }, async () => {
-      await sleep(100);
+      await sleep(200);
       refreshData();
     }, () => {
       setLoading(false);
