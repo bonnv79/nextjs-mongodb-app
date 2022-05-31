@@ -1,0 +1,8 @@
+@import 'styles/common.scss';
+
+.errorMsg {
+  @extend .paddingTop, .paddingBottom;
+  /* @extend #{'.paddingTop', '.paddingBottom'}; */
+  color: red;
+  font-size: 0.9em;
+}
