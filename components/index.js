@@ -10,3 +10,4 @@ export * from './DataNotFound';
 export * from './ErrorMsg';
 export * from './Container';
 export * from './TextArea';
+export * from './EllipsisMiddle';

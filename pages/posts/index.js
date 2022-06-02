@@ -3,11 +3,11 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Button, PageHeader, Space, Spin, Table } from 'antd';
 import { deleteAPI, getAPI, getUrl, putAPI, sleep } from 'utils';
-import styles from './styles.module.scss';
 import { API_POSTS } from 'constants/apiPath';
 import { useRouter } from 'next/router';
 import { ROUTER_PATH } from 'constants/routerPath';
 import { FIRST_PAGE, PAGE_SIZE } from 'constants';
+import { EllipsisMiddle } from 'components';
 
 export default function Posts({ data: initData = [] }) {
   const router = useRouter();
@@ -82,19 +82,33 @@ export default function Posts({ data: initData = [] }) {
     {
       dataIndex: '_id',
       title: 'Id',
+      render: (value) => {
+        return (
+          <EllipsisMiddle suffixCount={10}>
+            {value}
+          </EllipsisMiddle>
+        );
+      },
     },
     {
       dataIndex: 'title',
       title: 'Title',
+      render: (value) => {
+        return (
+          <EllipsisMiddle suffixCount={10}>
+            {value}
+          </EllipsisMiddle>
+        );
+      },
     },
     {
       dataIndex: 'body',
       title: 'Body',
-      render: (value, row, index) => {
+      render: (value) => {
         return (
-          <span className={styles.textOverflow}>
+          <EllipsisMiddle suffixCount={10}>
             {value}
-          </span>
+          </EllipsisMiddle>
         );
       },
     },
