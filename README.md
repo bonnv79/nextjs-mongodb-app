@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Demo
 
-Open [https://nextjs-mongodb-app-nine.vercel.app/](https://nextjs-mongodb-app-nine.vercel.app/)
+Open [https://nextjs-mongodb-app-bt.vercel.app/](https://nextjs-mongodb-app-bt.vercel.app/)
 
 ## Getting Started
 
