@@ -9,3 +9,4 @@
 ##### Release date: 2/6/2022
 - improvement: update add ant design
 - fix-bug: remove .env file
+- improvement: update home page
